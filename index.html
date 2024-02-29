@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ENCRIPTADOR
+
+    </title>
+    <link rel="icon" href="imagenes/muneco (1).png" type="image/x-icon">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap">
+</head>
+
+<body>
+    <main>
+        <header>
+            <img src="imagenes/muneco (1).png" alt="logo a">
+
+        </header>
+        <section class="superior">
+            <div class="izq">
+                <textarea class="t1" id="texto" placeholder="Ingrese texto aqui"></textarea>
+
+                <div class="botones">
+                    <p>Solo letras minúsculas y sin acentos</p>
+                    <input type="button" value="Encriptar" class="be" id="botonEncriptar">
+                    <input type="button" value="Desencriptar" class="bd" id="botonDesencriptar">
+                </div>
+            </div>
+
+
+            <div class="cmensaje">
+                <textarea class="t2" id="muestra-texto" readonly></textarea>
+                <input type="button" value="Copiar" class="copybtn" id="copiar-btn" style="display:none">
+            </div>
+        </section>
+
+
+
+
+
+
+    </main>
+    <footer>
+        <p>Creado por Daniel Sánchez - 2024 Proyecto ONE</p>
+    </footer>
+
+    <script src="encriptador.js"></script>
+</body>
+
+</html>
