@@ -79,7 +79,7 @@ main {
   -moz-box-shadow: 2px 15px 44px 0px rgba(0, 0, 0, 0.27);
   box-shadow: 2px 15px 44px 0px rgba(0, 0, 0, 0.27);
   align-items: center;
-  left: 865px;
+  left: 65%;
 }
 
 .copybtn:hover {
