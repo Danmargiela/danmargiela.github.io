@@ -1,34 +1,24 @@
 function validarMayusculas(texto) {
   var regexMayusculas = /[A-Z]/;
-  if (regexMayusculas.test(texto)) {
-    return false;
-  }
-  return true;
+  return !regexMayusculas.test(texto);
 }
 
 function validarAcentos(texto) {
   var regexAcentos = /[áéíóúÁÉÍÓÚ]/;
-  if (regexAcentos.test(texto)) {
-    return false;
-  }
-  return true;
+  return !regexAcentos.test(texto);
 }
 
-var botonEncriptar = document.querySelector(".be");
-var botonDesencriptar = document.querySelector(".bd");
 var copiarBtn = document.getElementById("copiar-btn");
+var valorInput;
 
-botonEncriptar.addEventListener("click", function () {
-  var valorInput = document.querySelector(".t1").value;
+document.querySelector(".be").addEventListener("click", function () {
+  valorInput = document.querySelector(".t1").value;
 
   if (!validarMayusculas(valorInput)) {
     alert("El texto contiene mayúsculas.");
     return;
   } else if (!validarAcentos(valorInput)) {
     alert("El texto contiene acentos.");
-    return;
-  } else if (!validarAcentos(valorInput) || !validarMayusculas(valorInput)) {
-    alert("El texto contiene tanto acentos como mayúsculas.");
     return;
   }
 
@@ -58,13 +48,7 @@ botonEncriptar.addEventListener("click", function () {
   }
 });
 
-copiarBtn.addEventListener("click", function () {
-  var muestraTexto = document.getElementById("muestra-texto");
-  muestraTexto.select();
-  document.execCommand("copy");
-});
-
-botonDesencriptar.addEventListener("click", function () {
+document.querySelector(".bd").addEventListener("click", function () {
   var textoEncriptado = document.querySelector(".t1").value;
 
   if (!validarMayusculas(textoEncriptado)) {
@@ -72,9 +56,6 @@ botonDesencriptar.addEventListener("click", function () {
     return;
   } else if (!validarAcentos(textoEncriptado)) {
     alert("El texto contiene acentos.");
-    return;
-  } else if (!validarAcentos(textoEncriptado) || !validarMayusculas(textoEncriptado)) {
-    alert("El texto contiene tanto acentos como mayúsculas.");
     return;
   }
 
@@ -88,12 +69,12 @@ botonDesencriptar.addEventListener("click", function () {
     return texto;
   }
 
-  var textoEncriptado = desencriptarTexto(textoEncriptado);
-  console.log("Texto encriptado:", textoEncriptado);
+  var textoDesencriptado = desencriptarTexto(textoEncriptado);
+  console.log("Texto encriptado:", textoDesencriptado);
   console.log("Texto original:", valorInput);
 
   var muestraTexto = document.getElementById("muestra-texto");
-  muestraTexto.value = textoEncriptado;
+  muestraTexto.value = textoDesencriptado;
 
   if (muestraTexto.value.trim() !== "") {
     muestraTexto.style.backgroundImage = "none";
@@ -102,4 +83,10 @@ botonDesencriptar.addEventListener("click", function () {
     muestraTexto.style.backgroundImage = "url('imagenes/notext.png')";
     copiarBtn.style.display = "none";
   }
+});
+
+copiarBtn.addEventListener("click", function () {
+  var muestraTexto = document.getElementById("muestra-texto");
+  muestraTexto.select();
+  document.execCommand("copy");
 });
