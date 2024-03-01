@@ -7,6 +7,10 @@ function validarAcentos(texto) {
   var regexAcentos = /[áéíóúÁÉÍÓÚ]/;
   return !regexAcentos.test(texto);
 }
+function validarCaracteresEspeciales(texto) {
+  var regexCaracteresEspeciales = /^[a-z]*$/; 
+  return regexCaracteresEspeciales.test(texto);
+}
 
 var copiarBtn = document.getElementById("copiar-btn");
 var valorInput;
@@ -15,10 +19,13 @@ document.querySelector(".be").addEventListener("click", function () {
   valorInput = document.querySelector(".t1").value;
 
   if (!validarMayusculas(valorInput)) {
-    alert("El texto contiene mayúsculas.");
+    alert("El texto no debe contener mayúsculas.");
     return;
   } else if (!validarAcentos(valorInput)) {
-    alert("El texto contiene acentos.");
+    alert("El texto no debe contener letras con acentos.");
+    return;
+  } else if (!validarCaracteresEspeciales(valorInput)) {
+    alert("El texto solo debe contener letras minúsculas sin acentos ni caracteres especiales.");
     return;
   }
 
@@ -52,10 +59,13 @@ document.querySelector(".bd").addEventListener("click", function () {
   var textoEncriptado = document.querySelector(".t1").value;
 
   if (!validarMayusculas(textoEncriptado)) {
-    alert("El texto contiene mayúsculas.");
+    alert("El texto no debe contener mayúsculas.");
     return;
   } else if (!validarAcentos(textoEncriptado)) {
-    alert("El texto contiene acentos.");
+    alert("El texto no debe contener letras con acentos.");
+    return;
+  } else if (!validarCaracteresEspeciales(textoEncriptado)) {
+    alert("El texto solo debe contener letras minúsculas sin acentos ni caracteres especiales.");
     return;
   }
 
