@@ -60,11 +60,11 @@ document.querySelector(".bd").addEventListener("click", function () {
   }
 
   function desencriptarTexto(texto) {
-    texto = texto.replace(/enter/g, "e");
-    texto = texto.replace(/imes/g, "i");
-    texto = texto.replace(/ai/g, "a");
-    texto = texto.replace(/ober/g, "o");
     texto = texto.replace(/ufat/g, "u");
+    texto = texto.replace(/ober/g, "o");
+    texto = texto.replace(/ai/g, "a");
+    texto = texto.replace(/imes/g, "i");
+    texto = texto.replace(/enter/g, "e");
 
     return texto;
   }
